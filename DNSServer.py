@@ -43,9 +43,9 @@ def decrypt_with_aes(encrypted_data, password, salt):
     decrypted_data = f.decrypt(encrypted_data) #call the Fernet decrypt method
     return decrypted_data.decode('utf-8')
 
-salt = b'salt_here' # Remember it should be a byte-object
-password = b'pass_here'
-input_string = b'input_here'
+salt = b'Tandon' # Remember it should be a byte-object
+password = b'mlf9573@nyu.edu'
+input_string = b'AlwaysWatching'
 
 encrypted_value = encrypt_with_aes(input_string, password, salt) # exfil function
 decrypted_value = decrypt_with_aes(encrypted_value, password, salt)  # exfil function
@@ -77,6 +77,25 @@ dns_records = {
     },
    
     # Add more records as needed (see assignment instructions!
+    'safebank.com.': {
+        dns.rdatatype.A: '192.168.1.102',
+    },
+
+    'google.com.': {
+        dns.rdatatype.A: '192.168.1.103',
+    },
+
+    'legitsite.com.': {
+        dns.rdatatype.A: '192.168.1.104',
+    },
+
+    'yahoo.com.': {
+        dns.rdatatype.A: '192.168.1.105',
+    },
+
+    'nyu.edu.': {
+        dns.rdatatype.A: '192.168.1.106',
+    },
 }
 
 def run_dns_server():
